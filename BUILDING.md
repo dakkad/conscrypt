@@ -22,12 +22,13 @@ Conscrypt requires that you have __Java__, __BoringSSL__ and the __Android SDK__
 described below.
 
 #### Java
-The build requires that you have the `JAVA_HOME` environment variable pointing to a valid JDK.
+The build requires that you have the `JAVA_HOME` environment variable pointing to a valid JDK (e.g. `export JAVA_HOME=/usr/lib/jvm/default-java`).
 
 #### Android SDK
 [Download and install](https://developer.android.com/studio/install.html) the latest Android SDK
 and set the `ANDROID_HOME` environment variable to point to the root of the SDK
-(e.g. `export ANDROID_HOME=/usr/local/me/Android/Sdk`).
+(e.g. `export ANDROID_HOME=/usr/local/me/Android/Sdk`) as well as the NDK home
+(e.g. `export ANDROID_NDK_HOME=/usr/local/me/Android/Sdk/ndk-bundle`).
 
 #### BoringSSL
 Before you can build BoringSSL, you'll first need to set up its
@@ -69,6 +70,8 @@ cmake -DCMAKE_TOOLCHAIN_FILE=../util/32-bit-toolchain.cmake \
       -GNinja ..
 ninja
 ```
+
+Note: You may also need to install `multilib` dependencies
 
 ##### Building on Windows
 This assumes that you have Microsoft Visual Studio 2017 installed along
